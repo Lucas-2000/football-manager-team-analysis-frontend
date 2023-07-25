@@ -6,6 +6,10 @@
   box-sizing: border-box;
 }
 
+body {
+  background: var(--main-bg-color);
+}
+
 a {
   text-decoration: none;
 }
@@ -16,4 +20,13 @@ li {
 
 button {
   cursor: pointer;
+}
+
+:root {
+  --main-bg-color: #e7e7e7;
+  --secondary-bg-color: #393d3f;
+  --main-color: #84e;
+  --secondary-color: #5dfdcb;
+  --white: #fff;
+  --black: #000;
 }
