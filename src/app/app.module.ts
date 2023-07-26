@@ -9,6 +9,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { RegisterComponent } from './pages/auth/register/register.component';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { LandingPageComponent } from './pages/landing-page/landing-page.componen
     RegisterComponent,
     LandingPageComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, MatIconModule],
+  imports: [BrowserModule, AppRoutingModule, MatIconModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
