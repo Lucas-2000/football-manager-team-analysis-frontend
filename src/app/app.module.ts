@@ -10,6 +10,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { RegisterComponent } from './pages/auth/register/register.component';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,14 @@ import { FormsModule } from '@angular/forms';
     RegisterComponent,
     LandingPageComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, MatIconModule, FormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    MatIconModule,
+    FormsModule,
+    CommonModule,
+    HttpClientModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

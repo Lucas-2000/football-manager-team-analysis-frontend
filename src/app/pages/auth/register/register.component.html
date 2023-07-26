@@ -12,8 +12,12 @@
     <div class="form-group">
       <label for="password">Password</label>
       <input type="password" id="password" name="password" [(ngModel)]="password" required>
+      <p *ngIf="!passwordError; else elsePassword"></p>
     </div>
-    <button type="submit" (click)="submitRegisterForm()">Create</button>
+    <ng-template #elsePassword>
+      <p class="password-error">{{passwordError}}</p>
+    </ng-template>
+    <button type="submit" (click)="submitRegisterForm({username, email, password})">Create</button>
   </form>
   <app-footer />
 </div>
