@@ -12,6 +12,7 @@ import { LandingPageComponent } from './pages/landing-page/landing-page.componen
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginComponent } from './pages/auth/login/login.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
     FooterComponent,
     RegisterComponent,
     LandingPageComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
