@@ -33,6 +33,7 @@ a {
   padding: 1rem;
   border-radius: 0.25rem;
   transition: 0.3s;
+  text-transform: uppercase;
 }
 
 .register:hover {
