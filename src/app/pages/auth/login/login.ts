@@ -5,5 +5,11 @@ export interface LoginFields {
 
 export interface AuthResponse {
   token: string;
-  userSummary: {};
+  userSummary: {
+    id: string;
+    username: string;
+    email: string;
+    password: string;
+    avatar: string | null;
+  };
 }
