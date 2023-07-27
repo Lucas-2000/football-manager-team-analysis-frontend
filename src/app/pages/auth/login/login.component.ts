@@ -16,6 +16,7 @@ export class LoginComponent {
   email: string = '';
   password: string = '';
   error: string = '';
+  isLoading: boolean = false;
 
   constructor(
     private loginService: LoginService,
@@ -35,6 +36,7 @@ export class LoginComponent {
 
   submitLoginForm(loginFields: LoginFields): void {
     if (this.validateForm(loginFields)) {
+      this.isLoading = true;
       this.loginService.auth(loginFields).subscribe({
         next: ({ token, userSummary }: AuthResponse) => {
           const user: User = {
@@ -45,10 +47,16 @@ export class LoginComponent {
           };
           this.userService.setCurrentUser(user);
           this.cookieService.put('token', token);
+        },
+        complete: () => {
+          this.isLoading = false;
           window.alert('Welcome to the football manager team analysis');
           return this.router.navigate(['/dashboard']);
         },
-        error: () => (this.error = 'Username or password invalid'),
+        error: () => {
+          this.error = 'Username or password invalid';
+          this.isLoading = false;
+        },
       });
     }
   }

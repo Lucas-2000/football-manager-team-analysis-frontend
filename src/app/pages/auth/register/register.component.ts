@@ -14,6 +14,7 @@ export class RegisterComponent {
   email: string = '';
   password: string = '';
   error: string = '';
+  isLoading: boolean = false;
 
   constructor(
     private registerService: RegisterService,
@@ -39,13 +40,19 @@ export class RegisterComponent {
   }
 
   submitRegisterForm(registerFields: RegisterFields): void {
-    if (this.validateForm(registerFields))
+    if (this.validateForm(registerFields)) {
+      this.isLoading = true;
       this.registerService.create(registerFields).subscribe({
         complete: () => {
+          this.isLoading = false;
           window.alert('User registered with success!');
           return this.router.navigate(['/login']);
         },
-        error: () => (this.error = `Username or email already in use!`),
+        error: () => {
+          this.error = `Username or email already in use!`;
+          this.isLoading = false;
+        },
       });
+    }
   }
 }

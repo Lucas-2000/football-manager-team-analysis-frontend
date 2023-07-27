@@ -35,17 +35,19 @@ export class ForgotPasswordComponent {
               token: response.token,
             })
             .subscribe({
-              next: () =>
+              complete: () => {
+                this.isLoading = false;
                 window.alert(
                   `Email send successful to ${forgotPasswordFields.email}`
-                ),
-              complete: () => (this.isLoading = false),
+                );
+              },
               error: () => {
                 this.error = 'Email not found';
                 this.isLoading = false;
               },
             });
         },
+        complete: () => (this.isLoading = false),
         error: () => {
           this.error = 'Email not found';
           this.isLoading = false;

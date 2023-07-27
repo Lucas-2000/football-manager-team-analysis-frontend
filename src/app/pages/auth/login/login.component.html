@@ -14,7 +14,10 @@
       <ng-template #elseError>
         <p class="error">{{error}}</p>
       </ng-template>
-      <button type="submit" (click)="submitLoginForm({username, password})">Login</button>
+      <button type="submit" (click)="submitLoginForm({username, password})" [disabled]="isLoading">
+        <span *ngIf="isLoading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+        <span *ngIf="!isLoading">Login</span>
+      </button>
       <div class="register-group">
         <span>Doesn't have a account? <a routerLink="/register">Create here.</a></span>
       </div>

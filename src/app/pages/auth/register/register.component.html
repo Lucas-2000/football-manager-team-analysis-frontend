@@ -17,7 +17,10 @@
     <ng-template #elseError>
       <p class="error">{{error}}</p>
     </ng-template>
-    <button type="submit" (click)="submitRegisterForm({username, email, password})">Create</button>
+    <button type="submit" (click)="submitRegisterForm({username, email, password})" [disabled]="isLoading">
+      <span *ngIf="isLoading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+      <span *ngIf="!isLoading">Create</span>
+    </button>
   </form>
   <app-footer />
 </div>
