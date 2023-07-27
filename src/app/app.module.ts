@@ -15,6 +15,7 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './pages/auth/login/login.component';
+import { ForgotPasswordComponent } from './pages/auth/forgot-password/forgot-password.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { LoginComponent } from './pages/auth/login/login.component';
     RegisterComponent,
     LandingPageComponent,
     LoginComponent,
+    ForgotPasswordComponent,
   ],
   imports: [
     BrowserModule,
