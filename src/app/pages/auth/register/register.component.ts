@@ -13,7 +13,7 @@ export class RegisterComponent {
   username: string = '';
   email: string = '';
   password: string = '';
-  passwordError: string = '';
+  error: string = '';
 
   constructor(
     private registerService: RegisterService,
@@ -21,9 +21,17 @@ export class RegisterComponent {
   ) {}
 
   validateForm(registerFields: RegisterFields): boolean {
+    if (
+      !registerFields.username ||
+      !registerFields.password ||
+      !registerFields.email
+    ) {
+      this.error = 'Please, fill all the fields';
+      return false;
+    }
+
     if (registerFields.password.length < 8) {
-      this.passwordError =
-        'Please, passwords must be at least 8 characters long';
+      this.error = 'Please, password must be at least 8 characters long';
       return false;
     }
 
@@ -37,7 +45,7 @@ export class RegisterComponent {
           window.alert('User registered with success!');
           return this.router.navigate(['/login']);
         },
-        error: () => window.alert(`Username or email already in use!`),
+        error: () => (this.error = `Username or email already in use!`),
       });
   }
 }

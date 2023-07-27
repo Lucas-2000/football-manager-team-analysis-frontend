@@ -3,19 +3,19 @@
     <h2>Create account</h2>
     <div class="form-group">
       <label for="username">Username</label>
-      <input type="text" id="username" name="username" [(ngModel)]="username" required>
+      <input type="text" id="username" name="username" placeholder="test" [(ngModel)]="username" required>
     </div>
     <div class="form-group">
       <label for="email">E-mail</label>
-      <input type="email" id="email" name="email" [(ngModel)]="email" required>
+      <input type="email" id="email" name="email" placeholder="test@example.com" [(ngModel)]="email" required>
     </div>
     <div class="form-group">
       <label for="password">Password</label>
-      <input type="password" id="password" name="password" [(ngModel)]="password" required>
-      <p *ngIf="!passwordError; else elsePassword"></p>
+      <input type="password" id="password" name="password" placeholder="********" [(ngModel)]="password" required>
+      <p *ngIf="!error; else elseError"></p>
     </div>
-    <ng-template #elsePassword>
-      <p class="password-error">{{passwordError}}</p>
+    <ng-template #elseError>
+      <p class="error">{{error}}</p>
     </ng-template>
     <button type="submit" (click)="submitRegisterForm({username, email, password})">Create</button>
   </form>

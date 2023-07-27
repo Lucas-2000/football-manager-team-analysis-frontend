@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { MatIconModule } from '@angular/material/icon';
 
+import { CookieModule } from 'ngx-cookie';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -30,6 +32,7 @@ import { LoginComponent } from './pages/auth/login/login.component';
     FormsModule,
     CommonModule,
     HttpClientModule,
+    CookieModule.withOptions(),
   ],
   providers: [],
   bootstrap: [AppComponent],

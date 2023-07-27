@@ -1,1 +1,24 @@
-<p>login works!</p>
+<div class="container">
+  <div class="container">
+    <form class="registration-form">
+      <h2>Login</h2>
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" placeholder="test" [(ngModel)]="username" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="********" [(ngModel)]="password" required>
+        <p *ngIf="!error; else elseError"></p>
+      </div>
+      <ng-template #elseError>
+        <p class="error">{{error}}</p>
+      </ng-template>
+      <button type="submit" (click)="submitLoginForm({username, password})">Login</button>
+      <div class="register-group">
+        <span>Doesn't have a account? <a routerLink="/register">Create here.</a></span>
+      </div>
+    </form>
+    <app-footer />
+  </div>
+</div>
