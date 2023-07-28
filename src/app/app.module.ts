@@ -16,6 +16,8 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './pages/auth/login/login.component';
 import { ForgotPasswordComponent } from './pages/auth/forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './pages/auth/reset-password/reset-password.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { ForgotPasswordComponent } from './pages/auth/forgot-password/forgot-pas
     LandingPageComponent,
     LoginComponent,
     ForgotPasswordComponent,
+    ResetPasswordComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
