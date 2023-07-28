@@ -1,0 +1,15 @@
+.main {
+  max-width: 400px;
+  margin: 10rem auto;
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+  font: 700 2rem "Poppins", sans-serif;
+}
+
+span {
+  font: 600 1rem "Roboto", sans-serif;
+  color: var(--main-color);
+}

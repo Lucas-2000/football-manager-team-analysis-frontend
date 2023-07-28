@@ -31,7 +31,10 @@ export class ResetPasswordComponent {
           this.isExpired = true;
         }
       },
-      error: () => this.router.navigate(['/404']),
+      error: () =>
+        this.router.navigate(['/404'], {
+          queryParams: { message: 'Invalid token' },
+        }),
     });
   }
 
