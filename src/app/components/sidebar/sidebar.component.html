@@ -1,0 +1,12 @@
+<div class="sidebar">
+  <ul>
+    <li><a routerLink="/account" routerLinkActive="active"><img [src]="avatarUrl" alt="avatar"></a>
+      <span>{{user?.username}}</span>
+    </li>
+    <li><a routerLink="/dashboard" routerLinkActive="active">Dashboard</a></li>
+    <li><a routerLink="/team" routerLinkActive="active">Team</a></li>
+    <li><a routerLink="/players" routerLinkActive="active">Players</a></li>
+    <li><a routerLink="/players" routerLinkActive="active">Export</a></li>
+    <li><button>Logout <mat-icon>logout</mat-icon></button></li>
+  </ul>
+</div>

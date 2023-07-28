@@ -6,6 +6,7 @@ import { LoginComponent } from './pages/auth/login/login.component';
 import { ForgotPasswordComponent } from './pages/auth/forgot-password/forgot-password.component';
 import { ResetPasswordComponent } from './pages/auth/reset-password/reset-password.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 const routes: Routes = [
   { path: '', component: LandingPageComponent },
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'reset-password/:token', component: ResetPasswordComponent },
+  { path: 'dashboard', component: DashboardComponent },
   { path: '**', redirectTo: '/404' },
 ];
 

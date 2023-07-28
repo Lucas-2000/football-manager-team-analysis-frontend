@@ -25,6 +25,14 @@ export class LoginComponent {
     private userService: UserService
   ) {}
 
+  ngOnInit() {
+    if (this.cookieService.get('token')) {
+      this.router.navigate(['/dashboard']);
+    } else {
+      this.router.navigate(['/login']);
+    }
+  }
+
   validateForm(loginFields: LoginFields): boolean {
     if (!loginFields.username || !loginFields.password) {
       this.error = 'Please, fill all the fields';
