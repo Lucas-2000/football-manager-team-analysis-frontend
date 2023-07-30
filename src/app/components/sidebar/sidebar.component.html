@@ -1,12 +1,20 @@
 <div class="sidebar">
   <ul>
-    <li><a routerLink="/account" routerLinkActive="active"><img [src]="avatarUrl" alt="avatar"></a>
+    <li><a *ngIf="avatarUrl" routerLink="/account" routerLinkActive="active"><img [src]="avatarUrl" alt="avatar"></a>
+      <a class="avatar" *ngIf="!avatarUrl" routerLink="/account" routerLinkActive="active">{{getFirstLetterOfUsername()}}</a>
       <span>{{user?.username}}</span>
     </li>
     <li><a routerLink="/dashboard" routerLinkActive="active">Dashboard</a></li>
     <li><a routerLink="/team" routerLinkActive="active">Team</a></li>
     <li><a routerLink="/players" routerLinkActive="active">Players</a></li>
-    <li><a routerLink="/players" routerLinkActive="active">Export</a></li>
-    <li><button>Logout <mat-icon>logout</mat-icon></button></li>
+    <li><a routerLink="/export" routerLinkActive="active">Export</a></li>
+    <li><button type="submit" (click)="openModal()">Logout <mat-icon>logout</mat-icon></button></li>
   </ul>
+</div>
+<div *ngIf="isOpen" class="modal" (click)="onOverlayClick($event)" #modal>
+  <div class="modal-content">
+    <h3>Are you sure you want to logout?</h3>
+    <button class="cancel-button" (click)="closeModal()">Cancel</button>
+    <button class="exit-button" (click)="logout()">Logout</button>
+  </div>
 </div>
