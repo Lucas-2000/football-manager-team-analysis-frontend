@@ -28,11 +28,14 @@ export class DashboardComponent {
       this.router.navigate(['/login']);
     }
 
+    this.checkTeamExists();
+  }
+
+  checkTeamExists() {
     const user = this.userService.getCurrentUser();
 
     this.teamService.findByUserId(user?.id).subscribe({
       next: (response: TeamResponse[]) => {
-        console.log(response);
         return (this.team = response);
       },
       error: () => (this.error = 'Is not possible return teams'),
