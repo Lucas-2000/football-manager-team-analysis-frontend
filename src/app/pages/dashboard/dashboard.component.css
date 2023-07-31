@@ -6,3 +6,42 @@
 .content h1 {
   font: 700 1.5rem "Poppins", sans-serif;
 }
+
+.team-content-empty {
+  width: 500px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.team-content-empty p {
+  font: 600 1.5rem "Roboto", sans-serif;
+  margin-top: 3rem;
+}
+
+.team-content-empty a {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  background-color: var(--main-color);
+  color: #fff;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  font: 700 1rem "Poppins", sans-serif;
+  text-transform: uppercase;
+  transition: 0.3s;
+  margin: 1rem 0 3rem 0;
+}
+
+.team-content-empty a:hover {
+  opacity: 0.7;
+}
+
+.team-content-empty a:active {
+  opacity: 0.3;
+}
+
+.team-content-empty img {
+  width: 100%;
+}

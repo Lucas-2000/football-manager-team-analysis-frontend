@@ -1,7 +1,8 @@
 import { Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { TeamResponse } from './team';
+import { CookieService } from 'ngx-cookie';
 
 @Injectable({
   providedIn: 'root',
@@ -9,9 +10,21 @@ import { TeamResponse } from './team';
 export class TeamService {
   private apiUrlTeam = 'http://localhost:3333/teams/';
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(
+    private httpClient: HttpClient,
+    private cookieService: CookieService
+  ) {}
 
-  find(teamId: string): Observable<TeamResponse> {
-    return this.httpClient.get<TeamResponse>(this.apiUrlTeam + teamId);
+  findByUserId(userId: string | undefined): Observable<TeamResponse[]> {
+    const token = this.cookieService.get('token');
+
+    const headers = new HttpHeaders({
+      Authorization: 'Bearer ' + token,
+    });
+
+    return this.httpClient.get<TeamResponse[]>(
+      this.apiUrlTeam + 'user/' + userId,
+      { headers }
+    );
   }
 }

@@ -2,5 +2,14 @@
   <app-sidebar />
   <div class="content">
     <h1>Football Manager Team Analysis</h1>
+    <div class="team-content-empty" *ngIf="team.length < 1; else teamElse">
+      <p>It looks like you don't have a team registered</p>
+      <a class="link-button" routerLink="/team">Click here to create a new team</a>
+      <img src="../../../assets/nothing.svg" alt="nothing">
+    </div>
+    <ng-template #teamElse>
+      <div class="team-content">
+      </div>
+    </ng-template>
   </div>
 </div>
