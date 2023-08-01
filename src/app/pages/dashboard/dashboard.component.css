@@ -50,3 +50,22 @@
 .team-content-empty img {
   width: 100%;
 }
+
+.team-content {
+  font: 700 1rem "Roboto", sans-serif;
+}
+
+select {
+  box-sizing: border-box;
+  width: 300px;
+  padding: 0.5rem;
+  font: 400 1rem "Roboto", sans-serif;
+  border: 2px solid transparent;
+  border-radius: 0.25rem;
+  transition: 0.3s;
+}
+
+select:focus {
+  border: 2px solid var(--main-color);
+  outline: none;
+}

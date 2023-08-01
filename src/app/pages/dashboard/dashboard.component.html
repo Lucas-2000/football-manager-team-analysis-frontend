@@ -4,13 +4,17 @@
     <header class="content-header">
       <h1>Dashboard</h1>
     </header>
-    <div class="team-content-empty" *ngIf="team.length < 1; else teamElse">
+    <div class="team-content-empty" *ngIf="teams.length < 1; else teamElse">
       <p>It looks like you don't have a team registered</p>
       <a class="link-button" routerLink="/team">Click here to create a new team</a>
       <img src="../../../assets/nothing.svg" alt="nothing">
     </div>
     <ng-template #teamElse>
       <div class="team-content">
+        <span>Select your team: </span>
+        <select name="team" id="team" ngDefaultControl required>
+          <option *ngFor="let team of teams" value={{team.teamName}}>{{team.teamName}}</option>
+        </select>
       </div>
     </ng-template>
   </div>

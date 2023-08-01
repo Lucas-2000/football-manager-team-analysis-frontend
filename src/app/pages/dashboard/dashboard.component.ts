@@ -11,7 +11,7 @@ import { TeamService } from 'src/app/services/team/team.service';
   styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent {
-  team: TeamResponse[] = [];
+  teams: TeamResponse[] = [];
   error: string = '';
 
   constructor(
@@ -36,7 +36,7 @@ export class DashboardComponent {
 
     this.teamService.findByUserId(user?.id).subscribe({
       next: (response: TeamResponse[]) => {
-        return (this.team = response);
+        return (this.teams = response);
       },
       error: () => (this.error = 'Is not possible return teams'),
     });
