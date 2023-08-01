@@ -12,21 +12,10 @@
   margin-bottom: 1rem;
 }
 
-.team-content-empty {
-  width: 500px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.team-content-empty p {
-  font: 600 1.5rem "Roboto", sans-serif;
-  margin-top: 3rem;
-}
-
-.team-content-empty a {
+.content a {
   box-sizing: border-box;
   display: block;
-  width: 100%;
+  width: max-content;
   padding: 1rem;
   background-color: var(--main-color);
   color: #fff;
@@ -39,14 +28,10 @@
   margin: 1rem 0 3rem 0;
 }
 
-.team-content-empty a:hover {
+.content a:hover {
   opacity: 0.7;
 }
 
-.team-content-empty a:active {
+.content a:active {
   opacity: 0.3;
-}
-
-.team-content-empty img {
-  width: 100%;
 }

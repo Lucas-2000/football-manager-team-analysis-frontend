@@ -7,6 +7,8 @@ import { ForgotPasswordComponent } from './pages/auth/forgot-password/forgot-pas
 import { ResetPasswordComponent } from './pages/auth/reset-password/reset-password.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { CreateTeamComponent } from './pages/team/create-team/create-team.component';
+import { TeamComponent } from './pages/team/team/team.component';
 
 const routes: Routes = [
   { path: '', component: LandingPageComponent },
@@ -16,6 +18,8 @@ const routes: Routes = [
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'reset-password/:token', component: ResetPasswordComponent },
   { path: 'dashboard', component: DashboardComponent },
+  { path: 'team', component: TeamComponent },
+  { path: 'team/create-team', component: CreateTeamComponent },
   { path: '**', redirectTo: '/404' },
 ];
 

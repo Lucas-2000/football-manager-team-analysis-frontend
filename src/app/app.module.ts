@@ -20,6 +20,8 @@ import { ResetPasswordComponent } from './pages/auth/reset-password/reset-passwo
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { CreateTeamComponent } from './pages/team/create-team/create-team.component';
+import { TeamComponent } from './pages/team/team/team.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,8 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     NotFoundComponent,
     DashboardComponent,
     SidebarComponent,
+    CreateTeamComponent,
+    TeamComponent,
   ],
   imports: [
     BrowserModule,
