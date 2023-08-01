@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { forkJoin } from 'rxjs';
 import { UserService } from 'src/app/services/auth/user/user.service';
 import { TeamResponse } from 'src/app/services/team/team';
 import { TeamService } from 'src/app/services/team/team.service';
@@ -32,13 +33,17 @@ export class TeamComponent {
         });
       },
       complete: () => {
-        this.teams.map((team) => {
-          this.teamService.getTeamLogo(team.teamLogo).subscribe({
-            next: (responseBlob: Blob) => {
-              const url = URL.createObjectURL(responseBlob);
-              this.teamLogos.push(url);
-            },
-          });
+        const logoRequests = this.teams.map((team) =>
+          this.teamService.getTeamLogo(team.teamLogo)
+        );
+
+        forkJoin(logoRequests).subscribe({
+          next: (responseBlobs: Blob[]) => {
+            this.teamLogos = responseBlobs.map((responseBlob: Blob) =>
+              URL.createObjectURL(responseBlob)
+            );
+          },
+          error: () => (this.error = 'Erro ao carregar logos das equipes'),
         });
       },
       error: () => (this.error = 'Error on returning teams'),
