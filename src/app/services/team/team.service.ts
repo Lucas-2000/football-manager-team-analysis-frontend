@@ -3,7 +3,10 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { TeamResponse } from './team';
 import { CookieService } from 'ngx-cookie';
-import { CreateTeamFields } from 'src/app/pages/team/create-team/create-team';
+import {
+  CreateTeamFields,
+  UpdateTeamFields,
+} from 'src/app/pages/team/create-team/create-team';
 
 @Injectable({
   providedIn: 'root',
@@ -30,6 +33,18 @@ export class TeamService {
     );
   }
 
+  findByTeamId(teamId: string | undefined | null): Observable<TeamResponse> {
+    const token = this.cookieService.get('token');
+
+    const headers = new HttpHeaders({
+      Authorization: 'Bearer ' + token,
+    });
+
+    return this.httpClient.get<TeamResponse>(this.apiUrlTeam + teamId, {
+      headers,
+    });
+  }
+
   create(
     {
       teamName,
@@ -48,6 +63,35 @@ export class TeamService {
 
     return this.httpClient.post<TeamResponse>(
       this.apiUrlTeam,
+      {
+        teamName,
+        teamLocalization,
+        teamCountry,
+        teamLeague,
+        teamGrade,
+        userId,
+      },
+      { headers }
+    );
+  }
+
+  update({
+    teamName,
+    teamLocalization,
+    teamCountry,
+    teamLeague,
+    teamGrade,
+    userId,
+    id,
+  }: UpdateTeamFields): Observable<TeamResponse> {
+    const token = this.cookieService.get('token');
+
+    const headers = new HttpHeaders({
+      Authorization: 'Bearer ' + token,
+    });
+
+    return this.httpClient.put<TeamResponse>(
+      this.apiUrlTeam + id,
       {
         teamName,
         teamLocalization,
@@ -85,5 +129,15 @@ export class TeamService {
       headers,
       responseType: 'blob',
     });
+  }
+
+  delete(teamId: string | null) {
+    const token = this.cookieService.get('token');
+
+    const headers = new HttpHeaders({
+      Authorization: 'Bearer ' + token,
+    });
+
+    return this.httpClient.delete(this.apiUrlTeam + teamId, { headers });
   }
 }

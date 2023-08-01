@@ -1,0 +1,60 @@
+<div>
+  <app-sidebar />
+  <div class="content">
+    <header class="content-header">
+      <h1>Manage Team</h1>
+    </header>
+    <a routerLink="/team">Back</a>
+    <form class="registration-form">
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="test" [(ngModel)]="teamName" required>
+      </div>
+      <div class="form-group">
+        <label for="localization">Localization</label>
+        <input type="text" id="localization" name="localization" placeholder="São Paulo" [(ngModel)]="teamLocalization" required>
+      </div>
+      <div class="form-group">
+        <label for="country">Country</label>
+        <input type="text" id="country" name="country" placeholder="Brazil" [(ngModel)]="teamCountry" required>
+      </div>
+      <div class="form-group">
+        <label for="league">League</label>
+        <input type="text" id="league" name="league" placeholder="Brasileirão" [(ngModel)]="teamLeague" required>
+      </div>
+      <div class="form-group">
+        <label for="grade">Grade</label>
+        <select name="grade" id="grade" [(ngModel)]="teamGrade" ngDefaultControl required>
+          <option value="A">A</option>
+          <option value="B">B</option>
+          <option value="C">C</option>
+          <option value="D">D</option>
+          <option value="E">E</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="logo">Logo (optional)</label>
+        <input type="file" id="logo" name="logo" (change)="onImageSelected($event)">
+        <p *ngIf="!error; else elseError"></p>
+      </div>
+      <ng-template #elseError>
+        <p class="error">{{error}}</p>
+      </ng-template>
+      <button type="submit" (click)="submitUpdateTeamForm({ teamName, teamLocalization, teamCountry, teamLeague, teamGrade, teamLogo })" [disabled]="isLoadingUpdate">
+        <span *ngIf="isLoadingUpdate" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+        <span *ngIf="!isLoadingUpdate">Update</span>
+      </button>
+      <button class="delete-team-button" type="submit" (click)="openModal()" [disabled]="isLoadingDelete">
+        <span *ngIf="isLoadingDelete" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+        <span *ngIf="!isLoadingDelete">Delete</span>
+      </button>
+    </form>
+  </div>
+</div>
+<div *ngIf="isOpen" class="modal" (click)="onOverlayClick($event)" #modal>
+  <div class="modal-content">
+    <h3>Are you sure you want to delete this team?</h3>
+    <button class="cancel-button" (click)="closeModal()">No</button>
+    <button class="exit-button" (click)="deleteTeam()">Yes</button>
+  </div>
+</div>

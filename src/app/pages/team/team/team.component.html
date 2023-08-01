@@ -9,7 +9,7 @@
       <h2>Registered teams</h2>
       <div class="content-cards">
         <div *ngFor="let team of teams; let i = index" class="card">
-          <a routerLink='/team/{{team.id}}'>
+          <a routerLink='/team/manage-team/{{team.id}}'>
             <h3>{{ team.teamName }}</h3>
             <img [src]="teamLogos[i]" alt="team logo">
             <span>{{ team.teamLocalization }} - {{ team.teamCountry }}</span>

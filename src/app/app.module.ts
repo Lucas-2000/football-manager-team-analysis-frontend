@@ -22,6 +22,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { CreateTeamComponent } from './pages/team/create-team/create-team.component';
 import { TeamComponent } from './pages/team/team/team.component';
+import { ManageTeamComponent } from './pages/team/manage-team/manage-team.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { TeamComponent } from './pages/team/team/team.component';
     SidebarComponent,
     CreateTeamComponent,
     TeamComponent,
+    ManageTeamComponent,
   ],
   imports: [
     BrowserModule,

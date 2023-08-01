@@ -9,6 +9,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { CreateTeamComponent } from './pages/team/create-team/create-team.component';
 import { TeamComponent } from './pages/team/team/team.component';
+import { ManageTeamComponent } from './pages/team/manage-team/manage-team.component';
 
 const routes: Routes = [
   { path: '', component: LandingPageComponent },
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'team', component: TeamComponent },
   { path: 'team/create-team', component: CreateTeamComponent },
+  { path: 'team/manage-team/:id', component: ManageTeamComponent },
   { path: '**', redirectTo: '/404' },
 ];
 
