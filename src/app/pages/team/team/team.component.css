@@ -54,6 +54,11 @@
   padding: 1rem;
   text-align: center;
   min-height: 400px;
+  transition: 0.3s;
+}
+
+.card:hover {
+  opacity: 0.4;
 }
 
 .card a {
