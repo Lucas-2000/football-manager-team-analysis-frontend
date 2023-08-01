@@ -10,6 +10,7 @@ import { CreateTeamFields } from 'src/app/pages/team/create-team/create-team';
 })
 export class TeamService {
   private apiUrlTeam = 'http://localhost:3333/teams/';
+  private apiUrlFiles = 'http://localhost:3333/files/';
 
   constructor(
     private httpClient: HttpClient,
@@ -75,6 +76,14 @@ export class TeamService {
 
     return this.httpClient.post(this.apiUrlTeam + teamId + '/logo', formData, {
       headers,
+    });
+  }
+
+  getTeamLogo(teamLogo: string): Observable<Blob> {
+    const headers = new HttpHeaders({ 'Content-Type': 'image/jpeg' });
+    return this.httpClient.get(this.apiUrlFiles + teamLogo, {
+      headers,
+      responseType: 'blob',
     });
   }
 }

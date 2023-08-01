@@ -12,7 +12,7 @@
   margin-bottom: 1rem;
 }
 
-.content a {
+.content-link {
   box-sizing: border-box;
   display: block;
   width: max-content;
@@ -28,10 +28,59 @@
   margin: 1rem 0 3rem 0;
 }
 
-.content a:hover {
+.content-link:hover {
   opacity: 0.7;
 }
 
-.content a:active {
+.content-link:active {
   opacity: 0.3;
+}
+
+.content-team h2 {
+  font: 700 1.5rem "Poppins", sans-serif;
+  margin-bottom: 1rem;
+}
+
+.content-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+}
+
+.card {
+  position: relative;
+  border: solid 1px black;
+  background: var(--white);
+  padding: 1rem;
+  text-align: center;
+  min-height: 400px;
+}
+
+.card a {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-decoration: none;
+  z-index: 1;
+}
+
+.card h3 {
+  font: 700 1.5rem "Poppins", sans-serif;
+  color: var(--main-color);
+  margin-top: 1rem;
+}
+
+.card span {
+  display: block;
+  margin-top: 1rem;
+  font: 700 1rem "Roboto", sans-serif;
+  color: var(--black);
+}
+
+.card img {
+  width: 200px;
+  margin-top: 1rem;
 }

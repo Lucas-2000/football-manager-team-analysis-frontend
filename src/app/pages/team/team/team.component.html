@@ -4,6 +4,20 @@
     <header class="content-header">
       <h1>Team</h1>
     </header>
-    <a routerLink="/team/create-team">Create a new team</a>
+    <a routerLink="/team/create-team" class="content-link">Create a new team</a>
+    <div class="content-team">
+      <h2>Registered teams</h2>
+      <div class="content-cards">
+        <div *ngFor="let team of teams; let i = index" class="card">
+          <a routerLink='/team/{{team.id}}'>
+            <h3>{{ team.teamName }}</h3>
+            <img [src]="teamLogos[i]" alt="team logo">
+            <span>{{ team.teamLocalization }} - {{ team.teamCountry }}</span>
+            <span>{{ team.teamLeague }}</span>
+            <span>{{ team.teamGrade }}</span>
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
