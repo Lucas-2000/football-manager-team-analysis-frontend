@@ -23,6 +23,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { CreateTeamComponent } from './pages/team/create-team/create-team.component';
 import { TeamComponent } from './pages/team/team/team.component';
 import { ManageTeamComponent } from './pages/team/manage-team/manage-team.component';
+import { PlayerComponent } from './pages/player/player/player.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { ManageTeamComponent } from './pages/team/manage-team/manage-team.compon
     CreateTeamComponent,
     TeamComponent,
     ManageTeamComponent,
+    PlayerComponent,
   ],
   imports: [
     BrowserModule,
