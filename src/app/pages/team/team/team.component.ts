@@ -43,7 +43,7 @@ export class TeamComponent {
               URL.createObjectURL(responseBlob)
             );
           },
-          error: () => (this.error = 'Erro ao carregar logos das equipes'),
+          error: () => (this.error = 'It is not possible to loading the logos'),
         });
       },
       error: () => (this.error = 'Error on returning teams'),

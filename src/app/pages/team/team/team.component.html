@@ -7,6 +7,7 @@
     <a routerLink="/team/create-team" class="content-link">Create a new team</a>
     <div *ngIf="teams" class="content-team">
       <h2>Registered teams</h2>
+      <span *ngIf="error" class="error">{{error}}</span>
       <div class="content-cards">
         <div *ngFor="let team of teams; let i = index" class="card">
           <a routerLink='/team/manage-team/{{team.id}}'>

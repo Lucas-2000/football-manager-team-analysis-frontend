@@ -89,3 +89,8 @@
   width: 200px;
   margin-top: 1rem;
 }
+
+.error {
+  font: 700 1rem "Roboto", sans-serif;
+  color: red;
+}
