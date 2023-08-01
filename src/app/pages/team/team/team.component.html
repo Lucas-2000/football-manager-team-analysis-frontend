@@ -5,7 +5,7 @@
       <h1>Team</h1>
     </header>
     <a routerLink="/team/create-team" class="content-link">Create a new team</a>
-    <div class="content-team">
+    <div *ngIf="teams" class="content-team">
       <h2>Registered teams</h2>
       <div class="content-cards">
         <div *ngFor="let team of teams; let i = index" class="card">
@@ -18,6 +18,9 @@
           </a>
         </div>
       </div>
+    </div>
+    <div *ngIf="teams.length < 1" class="content-team">
+      <h2>You don't have any team registered</h2>
     </div>
   </div>
 </div>
