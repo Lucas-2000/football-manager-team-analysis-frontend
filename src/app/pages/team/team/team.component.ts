@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie';
 import { forkJoin } from 'rxjs';
 import { UserService } from 'src/app/services/auth/user/user.service';
 import { TeamResponse } from 'src/app/services/team/team';
@@ -15,11 +17,19 @@ export class TeamComponent {
   error: string = '';
 
   constructor(
+    private router: Router,
+    private cookieService: CookieService,
     private teamService: TeamService,
     private userService: UserService
   ) {}
 
   ngOnInit() {
+    if (this.cookieService.get('token')) {
+      this.router.navigate(['/player']);
+    } else {
+      this.router.navigate(['/login']);
+    }
+
     this.getAllTeams();
   }
 
