@@ -1,0 +1,495 @@
+<div>
+  <app-sidebar />
+  <div class="content">
+    <header class="content-header">
+      <h1>New Player</h1>
+    </header>
+    <a routerLink="/player">Back</a>
+    <div class="multistep-form">
+      <form [formGroup]="multistepForm">
+        <div *ngIf="step === 1">
+          <div class="form-header">
+            <h2>General</h2>
+          </div>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" formControlName="name" placeholder="example">
+            <div class="error-group" *ngIf="multistepForm.get('name')?.invalid && multistepForm.get('name')?.touched">
+              <span class="error" *ngIf="multistepForm.get('name')?.hasError('required')">Name is required</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="birthdate">Birthdate</label>
+            <input type="date" id="birthdate" name="birthdate" formControlName="birthdate">
+            <div class="error-group" *ngIf="multistepForm.get('birthdate')?.invalid && multistepForm.get('birthdate')?.touched">
+              <span class="error" *ngIf="multistepForm.get('birthdate')?.hasError('required')">Birthdate is required</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="lenght">Lenght</label>
+            <input type="number" id="lenght" name="lenght" formControlName="lenght" placeholder="180">
+            <div class="error-group" *ngIf="multistepForm.get('lenght')?.invalid && multistepForm.get('lenght')?.touched">
+              <span class="error" *ngIf="multistepForm.get('lenght')?.hasError('required')">Lenght is required</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="weight">Weight</label>
+            <input type="number" id="weight" name="weight" formControlName="weight" placeholder="60">
+            <div class="error-group" *ngIf="multistepForm.get('weight')?.invalid && multistepForm.get('weight')?.touched">
+              <span class="error" *ngIf="multistepForm.get('weight')?.hasError('required')">Weight is required</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="jersey">Jersey</label>
+            <input type="number" id="jersey" name="jersey" formControlName="jersey" placeholder="10">
+            <div class="error-group" *ngIf="multistepForm.get('jersey')?.invalid && multistepForm.get('jersey')?.touched">
+              <span class="error" *ngIf="multistepForm.get('jersey')?.hasError('required')">Jersey is required</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Select player position: </label>
+            <select name="position" id="position" formControlName="position" required>
+              <option value="" disabled selected>Select a position</option>
+              <option *ngFor="let position of positions" [value]="position.positionRole">{{position.positionRole}}</option>
+            </select>
+            <div class="error-group" *ngIf="multistepForm.get('position')?.invalid && multistepForm.get('position')?.touched">
+              <span class="error" *ngIf="multistepForm.get('position')?.hasError('required')">Position is required</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Select your team: </label>
+            <select name="team" id="team" formControlName="team" required>
+              <option value="" disabled selected>Select a team</option>
+              <option *ngFor="let team of teams" [value]="team.teamName">{{team.teamName}}</option>
+            </select>
+            <div class="error-group" *ngIf="multistepForm.get('team')?.invalid && multistepForm.get('team')?.touched">
+              <span class="error" *ngIf="multistepForm.get('team')?.hasError('required')">Team is required</span>
+            </div>
+          </div>
+          <div class="form-right-button">
+            <button type="button" (click)="nextStep()">Next ></button>
+          </div>
+        </div>
+
+        <div *ngIf="step === 2">
+          <div class="form-header">
+            <h2>Technical</h2>
+          </div>
+          <div class="form-group">
+            <label for="corners">Corners</label>
+            <select name="corners" id="corners" formControlName="corners" required>
+              <option value="" disabled selected>Select a value</option>
+              <option *ngFor="let num of numbers" [value]="num">{{num}}</option>
+            </select>
+            <div class="error-group" *ngIf="multistepForm.get('corners')?.invalid && multistepForm.get('corners')?.touched">
+              <span class="error" *ngIf="multistepForm.get('corners')?.hasError('required')">Corners is required</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="crossing">Crossing</label>
+            <select name="crossing" id="crossing" formControlName="crossing" required>
+              <option value="" disabled selected>Select a value</option>
+              <option *ngFor="let num of numbers" [value]="num">{{num}}</option>
+            </select>
+            <div class="error-group" *ngIf="multistepForm.get('crossing')?.invalid && multistepForm.get('crossing')?.touched">
+              <span class="error" *ngIf="multistepForm.get('crossing')?.hasError('required')">Crossing is required</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="dribbling">Dribbling</label>
+            <select name="dribbling" id="dribbling" formControlName="dribbling" required>
+              <option value="" disabled selected>Select a value</option>
+              <option *ngFor="let num of numbers" [value]="num">{{num}}</option>
+            </select>
+            <div class="error-group" *ngIf="multistepForm.get('dribbling')?.invalid && multistepForm.get('dribbling')?.touched">
+              <span class="error" *ngIf="multistepForm.get('dribbling')?.hasError('required')">Dribbling is required</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="finishing">Finishing</label>
+            <select name="finishing" id="finishing" formControlName="finishing" required>
+              <option value="" disabled selected>Select a value</option>
+              <option *ngFor="let num of numbers" [value]="num">{{num}}</option>
+            </select>
+            <div class="error-group" *ngIf="multistepForm.get('finishing')?.invalid && multistepForm.get('finishing')?.touched">
+              <span class="error" *ngIf="multistepForm.get('finishing')?.hasError('required')">Finishing is required</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="firstTouch">First Touch</label>
+            <select name="firstTouch" id="firstTouch" formControlName="firstTouch" required>
+              <option value="" disabled selected>Select a value</option>
+              <option *ngFor="let num of numbers" [value]="num">{{num}}</option>
+            </select>
+            <div class="error-group" *ngIf="multistepForm.get('firstTouch')?.invalid && multistepForm.get('firstTouch')?.touched">
+              <span class="error" *ngIf="multistepForm.get('firstTouch')?.hasError('required')">First Touch is required</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="freeKickTaking">Free Kick Taking</label>
+            <select name="freeKickTaking" id="freeKickTaking" formControlName="freeKickTaking" required>
+              <option value="" disabled selected>Select a value</option>
+              <option *ngFor="let num of numbers" [value]="num">{{num}}</option>
+            </select>
+            <div class="error-group" *ngIf="multistepForm.get('freeKickTaking')?.invalid && multistepForm.get('freeKickTaking')?.touched">
+              <span class="error" *ngIf="multistepForm.get('freeKickTaking')?.hasError('required')">Free Kick Taking is required</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="heading">Heading</label>
+            <select name="heading" id="heading" formControlName="heading" required>
+              <option value="" disabled selected>Select a value</option>
+              <option *ngFor="let num of numbers" [value]="num">{{num}}</option>
+            </select>
+            <div class="error-group" *ngIf="multistepForm.get('heading')?.invalid && multistepForm.get('heading')?.touched">
+              <span class="error" *ngIf="multistepForm.get('heading')?.hasError('required')">Heading is required</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="longShots">Long Shots</label>
+            <select name="longShots" id="longShots" formControlName="longShots" required>
+              <option value="" disabled selected>Select a value</option>
+              <option *ngFor="let num of numbers" [value]="num">{{num}}</option>
+            </select>
+            <div class="error-group" *ngIf="multistepForm.get('longShots')?.invalid && multistepForm.get('longShots')?.touched">
+              <span class="error" *ngIf="multistepForm.get('longShots')?.hasError('required')">Long Shots is required</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="longThrows">Long Throws</label>
+            <select name="longThrows" id="longThrows" formControlName="longThrows" required>
+              <option value="" disabled selected>Select a value</option>
+              <option *ngFor="let num of numbers" [value]="num">{{num}}</option>
+            </select>
+            <div class="error-group" *ngIf="multistepForm.get('longThrows')?.invalid && multistepForm.get('longThrows')?.touched">
+              <span class="error" *ngIf="multistepForm.get('longThrows')?.hasError('required')">Long Throws is required</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="marking">Marking</label>
+            <select name="marking" id="marking" formControlName="marking" required>
+              <option value="" disabled selected>Select a value</option>
+              <option *ngFor="let num of numbers" [value]="num">{{num}}</option>
+            </select>
+            <div class="error-group" *ngIf="multistepForm.get('marking')?.invalid && multistepForm.get('marking')?.touched">
+              <span class="error" *ngIf="multistepForm.get('marking')?.hasError('required')">Marking is required</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="passing">Passing</label>
+            <select name="passing" id="passing" formControlName="passing" required>
+              <option value="" disabled selected>Select a value</option>
+              <option *ngFor="let num of numbers" [value]="num">{{num}}</option>
+            </select>
+            <div class="error-group" *ngIf="multistepForm.get('passing')?.invalid && multistepForm.get('passing')?.touched">
+              <span class="error" *ngIf="multistepForm.get('passing')?.hasError('required')">Passing is required</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="penaltyTaking">Penalty Taking</label>
+            <select name="penaltyTaking" id="penaltyTaking" formControlName="penaltyTaking" required>
+              <option value="" disabled selected>Select a value</option>
+              <option *ngFor="let num of numbers" [value]="num">{{num}}</option>
+            </select>
+            <div class="error-group" *ngIf="multistepForm.get('penaltyTaking')?.invalid && multistepForm.get('penaltyTaking')?.touched">
+              <span class="error" *ngIf="multistepForm.get('penaltyTaking')?.hasError('required')">Penalty Taking is required</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="tackling">Tackling</label>
+            <select name="tackling" id="tackling" formControlName="tackling" required>
+              <option value="" disabled selected>Select a value</option>
+              <option *ngFor="let num of numbers" [value]="num">{{num}}</option>
+            </select>
+            <div class="error-group" *ngIf="multistepForm.get('tackling')?.invalid && multistepForm.get('tackling')?.touched">
+              <span class="error" *ngIf="multistepForm.get('tackling')?.hasError('required')">Tackling is required</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="technique">Technique</label>
+            <select name="technique" id="technique" formControlName="technique" required>
+              <option value="" disabled selected>Select a value</option>
+              <option *ngFor="let num of numbers" [value]="num">{{num}}</option>
+            </select>
+            <div class="error-group" *ngIf="multistepForm.get('technique')?.invalid && multistepForm.get('technique')?.touched">
+              <span class="error" *ngIf="multistepForm.get('technique')?.hasError('required')">Technique is required</span>
+            </div>
+          </div>
+          <div class="form-button">
+            <button type="button" (click)="previousStep()">
+              < Previous</button>
+                <button type="button" (click)="nextStep()">Next ></button>
+          </div>
+        </div>
+
+        <div *ngIf="step === 3">
+          <div class="form-header">
+            <h2>Mental</h2>
+          </div>
+          <div class="form-group">
+            <label for="agression">Agression</label>
+            <select name="agression" id="agression" formControlName="agression" required>
+              <option value="" disabled selected>Select a value</option>
+              <option *ngFor="let num of numbers" [value]="num">{{num}}</option>
+            </select>
+            <div class="error-group" *ngIf="multistepForm.get('agression')?.invalid && multistepForm.get('agression')?.touched">
+              <span class="error" *ngIf="multistepForm.get('agression')?.hasError('required')">Agression is required</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="anticipation">Anticipation</label>
+            <select name="anticipation" id="anticipation" formControlName="anticipation" required>
+              <option value="" disabled selected>Select a value</option>
+              <option *ngFor="let num of numbers" [value]="num">{{num}}</option>
+            </select>
+            <div class="error-group" *ngIf="multistepForm.get('anticipation')?.invalid && multistepForm.get('anticipation')?.touched">
+              <span class="error" *ngIf="multistepForm.get('anticipation')?.hasError('required')">Anticipation is required</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="bravery">Bravery</label>
+            <select name="bravery" id="bravery" formControlName="bravery" required>
+              <option value="" disabled selected>Select a value</option>
+              <option *ngFor="let num of numbers" [value]="num">{{num}}</option>
+            </select>
+            <div class="error-group" *ngIf="multistepForm.get('bravery')?.invalid && multistepForm.get('bravery')?.touched">
+              <span class="error" *ngIf="multistepForm.get('bravery')?.hasError('required')">Bravery is required</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="composure">Composure</label>
+            <select name="composure" id="composure" formControlName="composure" required>
+              <option value="" disabled selected>Select a value</option>
+              <option *ngFor="let num of numbers" [value]="num">{{num}}</option>
+            </select>
+            <div class="error-group" *ngIf="multistepForm.get('composure')?.invalid && multistepForm.get('composure')?.touched">
+              <span class="error" *ngIf="multistepForm.get('composure')?.hasError('required')">Composure is required</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="concentration">Concentration</label>
+            <select name="concentration" id="concentration" formControlName="concentration" required>
+              <option value="" disabled selected>Select a value</option>
+              <option *ngFor="let num of numbers" [value]="num">{{num}}</option>
+            </select>
+            <div class="error-group" *ngIf="multistepForm.get('concentration')?.invalid && multistepForm.get('concentration')?.touched">
+              <span class="error" *ngIf="multistepForm.get('concentration')?.hasError('required')">Concentration is required</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="decisions">Decisions</label>
+            <select name="decisions" id="decisions" formControlName="decisions" required>
+              <option value="" disabled selected>Select a value</option>
+              <option *ngFor="let num of numbers" [value]="num">{{num}}</option>
+            </select>
+            <div class="error-group" *ngIf="multistepForm.get('decisions')?.invalid && multistepForm.get('decisions')?.touched">
+              <span class="error" *ngIf="multistepForm.get('decisions')?.hasError('required')">Decisions is required</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="determination">Determination</label>
+            <select name="determination" id="determination" formControlName="determination" required>
+              <option value="" disabled selected>Select a value</option>
+              <option *ngFor="let num of numbers" [value]="num">{{num}}</option>
+            </select>
+            <div class="error-group" *ngIf="multistepForm.get('determination')?.invalid && multistepForm.get('determination')?.touched">
+              <span class="error" *ngIf="multistepForm.get('determination')?.hasError('required')">Determination is required</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="flair">Flair</label>
+            <select name="flair" id="flair" formControlName="flair" required>
+              <option value="" disabled selected>Select a value</option>
+              <option *ngFor="let num of numbers" [value]="num">{{num}}</option>
+            </select>
+            <div class="error-group" *ngIf="multistepForm.get('flair')?.invalid && multistepForm.get('flair')?.touched">
+              <span class="error" *ngIf="multistepForm.get('flair')?.hasError('required')">Flair is required</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="leadership">Leadership</label>
+            <select name="leadership" id="leadership" formControlName="leadership" required>
+              <option value="" disabled selected>Select a value</option>
+              <option *ngFor="let num of numbers" [value]="num">{{num}}</option>
+            </select>
+            <div class="error-group" *ngIf="multistepForm.get('leadership')?.invalid && multistepForm.get('leadership')?.touched">
+              <span class="error" *ngIf="multistepForm.get('leadership')?.hasError('required')">Leadership is required</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="offTheBall">Off The Ball</label>
+            <select name="offTheBall" id="offTheBall" formControlName="offTheBall" required>
+              <option value="" disabled selected>Select a value</option>
+              <option *ngFor="let num of numbers" [value]="num">{{num}}</option>
+            </select>
+            <div class="error-group" *ngIf="multistepForm.get('offTheBall')?.invalid && multistepForm.get('offTheBall')?.touched">
+              <span class="error" *ngIf="multistepForm.get('offTheBall')?.hasError('required')">Off The Ball is required</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="positioning">Positioning</label>
+            <select name="positioning" id="positioning" formControlName="positioning" required>
+              <option value="" disabled selected>Select a value</option>
+              <option *ngFor="let num of numbers" [value]="num">{{num}}</option>
+            </select>
+            <div class="error-group" *ngIf="multistepForm.get('positioning')?.invalid && multistepForm.get('positioning')?.touched">
+              <span class="error" *ngIf="multistepForm.get('positioning')?.hasError('required')">Positioning is required</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="teamWork">Team Work</label>
+            <select name="teamWork" id="teamWork" formControlName="teamWork" required>
+              <option value="" disabled selected>Select a value</option>
+              <option *ngFor="let num of numbers" [value]="num">{{num}}</option>
+            </select>
+            <div class="error-group" *ngIf="multistepForm.get('teamWork')?.invalid && multistepForm.get('teamWork')?.touched">
+              <span class="error" *ngIf="multistepForm.get('teamWork')?.hasError('required')">Team Work is required</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="vision">Vision</label>
+            <select name="vision" id="vision" formControlName="vision" required>
+              <option value="" disabled selected>Select a value</option>
+              <option *ngFor="let num of numbers" [value]="num">{{num}}</option>
+            </select>
+            <div class="error-group" *ngIf="multistepForm.get('vision')?.invalid && multistepForm.get('vision')?.touched">
+              <span class="error" *ngIf="multistepForm.get('vision')?.hasError('required')">Vision is required</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="workRate">Work Rate</label>
+            <select name="workRate" id="workRate" formControlName="workRate" required>
+              <option value="" disabled selected>Select a value</option>
+              <option *ngFor="let num of numbers" [value]="num">{{num}}</option>
+            </select>
+            <div class="error-group" *ngIf="multistepForm.get('workRate')?.invalid && multistepForm.get('workRate')?.touched">
+              <span class="error" *ngIf="multistepForm.get('workRate')?.hasError('required')">Work Rate is required</span>
+            </div>
+          </div>
+          <div class="form-button">
+            <button type="button" (click)="previousStep()">
+              < Previous</button>
+                <button type="button" (click)="nextStep()">Next ></button>
+          </div>
+        </div>
+
+        <div *ngIf="step === 4">
+          <div class="form-header">
+            <h2>Physical</h2>
+          </div>
+          <div class="form-group">
+            <label for="acceleration">Acceleration</label>
+            <select name="acceleration" id="acceleration" formControlName="acceleration" required>
+              <option value="" disabled selected>Select a value</option>
+              <option *ngFor="let num of numbers" [value]="num">{{num}}</option>
+            </select>
+            <div class="error-group" *ngIf="multistepForm.get('acceleration')?.invalid && multistepForm.get('acceleration')?.touched">
+              <span class="error" *ngIf="multistepForm.get('acceleration')?.hasError('required')">Acceleration is required</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="agility">Agility</label>
+            <select name="agility" id="agility" formControlName="agility" required>
+              <option value="" disabled selected>Select a value</option>
+              <option *ngFor="let num of numbers" [value]="num">{{num}}</option>
+            </select>
+            <div class="error-group" *ngIf="multistepForm.get('agility')?.invalid && multistepForm.get('agility')?.touched">
+              <span class="error" *ngIf="multistepForm.get('agility')?.hasError('required')">Agility is required</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="balance">Balance</label>
+            <select name="balance" id="balance" formControlName="balance" required>
+              <option value="" disabled selected>Select a value</option>
+              <option *ngFor="let num of numbers" [value]="num">{{num}}</option>
+            </select>
+            <div class="error-group" *ngIf="multistepForm.get('balance')?.invalid && multistepForm.get('balance')?.touched">
+              <span class="error" *ngIf="multistepForm.get('balance')?.hasError('required')">Balance is required</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="jumpingReach">Jumping Reach</label>
+            <select name="jumpingReach" id="jumpingReach" formControlName="jumpingReach" required>
+              <option value="" disabled selected>Select a value</option>
+              <option *ngFor="let num of numbers" [value]="num">{{num}}</option>
+            </select>
+            <div class="error-group" *ngIf="multistepForm.get('jumpingReach')?.invalid && multistepForm.get('jumpingReach')?.touched">
+              <span class="error" *ngIf="multistepForm.get('jumpingReach')?.hasError('required')">Jumping Reach is required</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="naturalFitness">Natural Fitness</label>
+            <select name="naturalFitness" id="naturalFitness" formControlName="naturalFitness" required>
+              <option value="" disabled selected>Select a value</option>
+              <option *ngFor="let num of numbers" [value]="num">{{num}}</option>
+            </select>
+            <div class="error-group" *ngIf="multistepForm.get('naturalFitness')?.invalid && multistepForm.get('naturalFitness')?.touched">
+              <span class="error" *ngIf="multistepForm.get('naturalFitness')?.hasError('required')">Natural Fitness is required</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="pace">Pace</label>
+            <select name="pace" id="pace" formControlName="pace" required>
+              <option value="" disabled selected>Select a value</option>
+              <option *ngFor="let num of numbers" [value]="num">{{num}}</option>
+            </select>
+            <div class="error-group" *ngIf="multistepForm.get('pace')?.invalid && multistepForm.get('pace')?.touched">
+              <span class="error" *ngIf="multistepForm.get('pace')?.hasError('required')">Pace is required</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="stamina">Stamina</label>
+            <select name="stamina" id="stamina" formControlName="stamina" required>
+              <option value="" disabled selected>Select a value</option>
+              <option *ngFor="let num of numbers" [value]="num">{{num}}</option>
+            </select>
+            <div class="error-group" *ngIf="multistepForm.get('stamina')?.invalid && multistepForm.get('stamina')?.touched">
+              <span class="error" *ngIf="multistepForm.get('stamina')?.hasError('required')">Stamina is required</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="strenght">Strenght</label>
+            <select name="strenght" id="strenght" formControlName="strenght" required>
+              <option value="" disabled selected>Select a value</option>
+              <option *ngFor="let num of numbers" [value]="num">{{num}}</option>
+            </select>
+            <div class="error-group" *ngIf="multistepForm.get('strenght')?.invalid && multistepForm.get('strenght')?.touched">
+              <span class="error" *ngIf="multistepForm.get('strenght')?.hasError('required')">Strenght is required</span>
+            </div>
+          </div>
+          <div class="form-button">
+            <button type="button" (click)="previousStep()">
+              < Previous</button>
+                <button type="button" (click)="nextStep()">
+                  Next ></button>
+          </div>
+        </div>
+
+        <div *ngIf="step === 5">
+          <div class="form-header">
+            <h2>Image</h2>
+          </div>
+          <div class="form-group">
+            <label for="playerImage">Player image (optional)</label>
+            <input type="file" id="playerImage" name="playerImage" (change)="onFileChange($event)" formControlName="playerImage" accept="image/*">
+          </div>
+          <div class="form-button">
+            <button type="button" (click)="previousStep()">
+              < Previous</button>
+                <button type="button" (click)="submitCreatePlayer()" [disabled]="isLoading">
+                  <span *ngIf="isLoading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                  <span *ngIf="!isLoading">Create</span></button>
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
+<div *ngIf="isOpen" class="modal" (click)="onOverlayClick($event)" #modal>
+  <div class="modal-content">
+    <h3>Wants to create another player?</h3>
+    <button class="cancel-button" (click)="redirectToPlayerPage()">No</button>
+    <button class="exit-button" (click)="addAnotherPlayer()">Yes</button>
+  </div>
+</div>

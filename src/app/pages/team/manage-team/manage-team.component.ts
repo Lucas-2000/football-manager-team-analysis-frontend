@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/services/auth/user/user.service';
 import { TeamService } from 'src/app/services/team/team.service';
 import { UpdateTeamFields } from './manage-team';
+import { CookieService } from 'ngx-cookie';
 
 @Component({
   selector: 'app-manage-team',
@@ -27,12 +28,20 @@ export class ManageTeamComponent {
   constructor(
     private teamService: TeamService,
     private userService: UserService,
+    private cookieService: CookieService,
     private router: Router,
     private route: ActivatedRoute
   ) {}
 
   ngOnInit() {
     const idRoute = this.route.snapshot.paramMap.get('id');
+
+    if (this.cookieService.get('token')) {
+      this.router.navigate(['/team/manage-team/' + idRoute]);
+    } else {
+      this.router.navigate(['/login']);
+    }
+
     this.teamService.findByTeamId(idRoute).subscribe({
       next: (response) => {
         this.id = response.id;

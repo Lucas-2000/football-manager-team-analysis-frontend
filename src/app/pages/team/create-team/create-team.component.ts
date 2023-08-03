@@ -3,6 +3,7 @@ import { CreateTeamFields } from './create-team';
 import { TeamService } from 'src/app/services/team/team.service';
 import { UserService } from 'src/app/services/auth/user/user.service';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie';
 
 @Component({
   selector: 'app-create-team',
@@ -24,8 +25,17 @@ export class CreateTeamComponent {
   constructor(
     private teamService: TeamService,
     private userService: UserService,
+    private cookieService: CookieService,
     private router: Router
   ) {}
+
+  ngOnInit() {
+    if (this.cookieService.get('token')) {
+      this.router.navigate(['/team/create-team']);
+    } else {
+      this.router.navigate(['/login']);
+    }
+  }
 
   validateForm({
     teamName,

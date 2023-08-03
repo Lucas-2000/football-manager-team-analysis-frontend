@@ -11,7 +11,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { RegisterComponent } from './pages/auth/register/register.component';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './pages/auth/login/login.component';
@@ -24,6 +24,7 @@ import { CreateTeamComponent } from './pages/team/create-team/create-team.compon
 import { TeamComponent } from './pages/team/team/team.component';
 import { ManageTeamComponent } from './pages/team/manage-team/manage-team.component';
 import { PlayerComponent } from './pages/player/player/player.component';
+import { CreatePlayerComponent } from './pages/player/create-player/create-player.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { PlayerComponent } from './pages/player/player/player.component';
     TeamComponent,
     ManageTeamComponent,
     PlayerComponent,
+    CreatePlayerComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,6 +52,7 @@ import { PlayerComponent } from './pages/player/player/player.component';
     FormsModule,
     CommonModule,
     HttpClientModule,
+    ReactiveFormsModule,
     CookieModule.withOptions(),
   ],
   providers: [],

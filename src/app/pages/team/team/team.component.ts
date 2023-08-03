@@ -25,7 +25,7 @@ export class TeamComponent {
 
   ngOnInit() {
     if (this.cookieService.get('token')) {
-      this.router.navigate(['/player']);
+      this.router.navigate(['/team']);
     } else {
       this.router.navigate(['/login']);
     }

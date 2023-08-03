@@ -11,6 +11,7 @@ import { CreateTeamComponent } from './pages/team/create-team/create-team.compon
 import { TeamComponent } from './pages/team/team/team.component';
 import { ManageTeamComponent } from './pages/team/manage-team/manage-team.component';
 import { PlayerComponent } from './pages/player/player/player.component';
+import { CreatePlayerComponent } from './pages/player/create-player/create-player.component';
 
 const routes: Routes = [
   { path: '', component: LandingPageComponent },
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'team/create-team', component: CreateTeamComponent },
   { path: 'team/manage-team/:id', component: ManageTeamComponent },
   { path: 'player', component: PlayerComponent },
+  { path: 'player/create-player', component: CreatePlayerComponent },
   { path: '**', redirectTo: '/404' },
 ];
 
