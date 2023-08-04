@@ -58,7 +58,6 @@ export class PlayerComponent {
         next: (response) => {
           return (this.players = response);
         },
-        complete: () => console.log(this.players),
         error: () => (this.error = 'Is not possible return players'),
       });
   }

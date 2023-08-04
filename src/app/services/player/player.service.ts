@@ -2,7 +2,11 @@ import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { CookieService } from 'ngx-cookie';
-import { CreatePlayerRequest, CreatePlayerResponse } from './player';
+import {
+  CreatePlayerRequest,
+  CreatePlayerResponse,
+  UpdatePlayerRequest,
+} from './player';
 import { PlayerResponse } from 'src/app/pages/player/player/player';
 
 @Injectable({
@@ -155,6 +159,123 @@ export class PlayerService {
 
     return this.httpClient.get<PlayerResponse[]>(
       this.apiUrlPlayers + userId + '/' + teamId,
+      { headers }
+    );
+  }
+
+  findByPlayerId(playerId: string): Observable<PlayerResponse> {
+    const token = this.cookieService.get('token');
+
+    const headers = new HttpHeaders({
+      Authorization: 'Bearer ' + token,
+    });
+
+    return this.httpClient.get<PlayerResponse>(this.apiUrlPlayers + playerId, {
+      headers,
+    });
+  }
+
+  update({
+    id,
+    name,
+    birthdate,
+    lenght,
+    weight,
+    jersey,
+    positionId,
+    teamId,
+    userId,
+    corners,
+    crossing,
+    dribbling,
+    finishing,
+    firstTouch,
+    freeKickTaking,
+    heading,
+    longShots,
+    longThrows,
+    marking,
+    passing,
+    penaltyTaking,
+    tackling,
+    technique,
+    agression,
+    anticipation,
+    bravery,
+    composure,
+    concentration,
+    decisions,
+    determination,
+    flair,
+    leadership,
+    offTheBall,
+    positioning,
+    teamWork,
+    vision,
+    workRate,
+    acceleration,
+    agility,
+    balance,
+    jumpingReach,
+    naturalFitness,
+    pace,
+    stamina,
+    strenght,
+  }: UpdatePlayerRequest): Observable<CreatePlayerResponse> {
+    const token = this.cookieService.get('token');
+
+    const headers = new HttpHeaders({
+      Authorization: 'Bearer ' + token,
+    });
+
+    return this.httpClient.put<CreatePlayerResponse>(
+      this.apiUrlPlayers + id,
+      {
+        name,
+        birthdate,
+        lenght,
+        weight,
+        jersey,
+        positionId,
+        teamId,
+        userId,
+        corners,
+        crossing,
+        dribbling,
+        finishing,
+        firstTouch,
+        freeKickTaking,
+        heading,
+        longShots,
+        longThrows,
+        marking,
+        passing,
+        penaltyTaking,
+        tackling,
+        technique,
+        agression,
+        anticipation,
+        bravery,
+        composure,
+        concentration,
+        decisions,
+        determination,
+        flair,
+        leadership,
+        offTheBall,
+        positioning,
+        teamWork,
+        vision,
+        workRate,
+        acceleration,
+        agility,
+        balance,
+        jumpingReach,
+        naturalFitness,
+        pace,
+        stamina,
+        strenght,
+      },
       { headers }
     );
   }

@@ -12,6 +12,7 @@ import { TeamComponent } from './pages/team/team/team.component';
 import { ManageTeamComponent } from './pages/team/manage-team/manage-team.component';
 import { PlayerComponent } from './pages/player/player/player.component';
 import { CreatePlayerComponent } from './pages/player/create-player/create-player.component';
+import { EditPlayerComponent } from './pages/player/edit-player/edit-player.component';
 
 const routes: Routes = [
   { path: '', component: LandingPageComponent },
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'team/manage-team/:id', component: ManageTeamComponent },
   { path: 'player', component: PlayerComponent },
   { path: 'player/create-player', component: CreatePlayerComponent },
+  { path: 'player/edit-player/:id', component: EditPlayerComponent },
   { path: '**', redirectTo: '/404' },
 ];
 
