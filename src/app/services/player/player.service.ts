@@ -279,4 +279,14 @@ export class PlayerService {
       { headers }
     );
   }
+
+  delete(playerId: string) {
+    const token = this.cookieService.get('token');
+
+    const headers = new HttpHeaders({
+      Authorization: 'Bearer ' + token,
+    });
+
+    return this.httpClient.delete(this.apiUrlPlayers + playerId, { headers });
+  }
 }

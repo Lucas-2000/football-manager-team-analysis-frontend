@@ -26,6 +26,7 @@ import { ManageTeamComponent } from './pages/team/manage-team/manage-team.compon
 import { PlayerComponent } from './pages/player/player/player.component';
 import { CreatePlayerComponent } from './pages/player/create-player/create-player.component';
 import { EditPlayerComponent } from './pages/player/edit-player/edit-player.component';
+import { DeletePlayerComponent } from './pages/player/delete-player/delete-player.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { EditPlayerComponent } from './pages/player/edit-player/edit-player.comp
     PlayerComponent,
     CreatePlayerComponent,
     EditPlayerComponent,
+    DeletePlayerComponent,
   ],
   imports: [
     BrowserModule,

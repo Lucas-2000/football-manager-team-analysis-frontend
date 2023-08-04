@@ -123,3 +123,8 @@ select:focus {
   text-transform: uppercase;
   transition: 0.3s;
 }
+
+.edit-button:hover,
+.delete-button:hover {
+  opacity: 0.7;
+}

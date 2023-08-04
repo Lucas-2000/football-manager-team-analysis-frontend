@@ -94,6 +94,15 @@ export class EditPlayerComponent {
     this.findAllUserTeams();
     this.findAllPositions();
     this.getAllPlayerInformation(id as string);
+
+    const idRoute = this.route.snapshot.paramMap.get('id');
+
+    this.playerService.findByPlayerId(idRoute as string).subscribe({
+      error: () =>
+        this.router.navigate(['/404'], {
+          queryParams: { message: 'Player not found' },
+        }),
+    });
   }
 
   findAllUserTeams() {

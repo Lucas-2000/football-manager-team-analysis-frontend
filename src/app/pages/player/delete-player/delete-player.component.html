@@ -1,0 +1,18 @@
+<div>
+  <app-sidebar />
+  <div class="content">
+    <header class="content-header">
+      <h1>Delete Player</h1>
+    </header>
+    <a routerLink="/player">Back</a>
+    <form class="content-form">
+      <div class="form-header">
+        <h2>Are you sure want to delete this player?</h2>
+      </div>
+      <button class="yes-button" (click)="deletePlayer()" [disabled]="isLoading">
+        <span *ngIf="isLoading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+        <span *ngIf="!isLoading">Yes</span></button>
+      <button class="no-button" (click)="back()">No</button>
+    </form>
+  </div>
+</div>
