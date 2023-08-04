@@ -28,6 +28,10 @@
   margin: 1rem 0 3rem 0;
 }
 
+.content-link:hover {
+  opacity: 0.7;
+}
+
 .content span {
   font: 700 1rem "Roboto", sans-serif;
 }
