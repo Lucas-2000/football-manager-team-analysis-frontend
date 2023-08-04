@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { CookieService } from 'ngx-cookie';
 import { CreatePlayerRequest, CreatePlayerResponse } from './player';
+import { PlayerResponse } from 'src/app/pages/player/player/player';
 
 @Injectable({
   providedIn: 'root',
@@ -139,6 +140,22 @@ export class PlayerService {
       {
         headers,
       }
+    );
+  }
+
+  findByUserIdAndTeamId(
+    userId: string,
+    teamId: string
+  ): Observable<PlayerResponse[]> {
+    const token = this.cookieService.get('token');
+
+    const headers = new HttpHeaders({
+      Authorization: 'Bearer ' + token,
+    });
+
+    return this.httpClient.get<PlayerResponse[]>(
+      this.apiUrlPlayers + userId + '/' + teamId,
+      { headers }
     );
   }
 }

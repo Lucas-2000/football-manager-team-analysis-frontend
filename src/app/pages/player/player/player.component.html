@@ -6,9 +6,36 @@
     </header>
     <a routerLink="/player/create-player" class="content-link">Create a new player</a>
     <span>Select your team: </span>
-    <select name="team" id="team" required>
+    <select name="team" id="team" [(ngModel)]="selectedTeam" (change)="findPlayerByUserAndTeamId()" required>
+      <option value="" disabled selected>Select a team</option>
       <option *ngFor="let team of teams" [value]="team.teamName">{{team.teamName}}</option>
     </select>
-    <div class="content-table"></div>
+    <div class="content-table">
+      <table class="styled-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Birthdate</th>
+            <th>Lenght</th>
+            <th>Weight</th>
+            <th>Jersey</th>
+            <th>Options</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let player of players">
+            <td>{{player.name}}</td>
+            <td>{{player.birthdate}}</td>
+            <td>{{player.lenght}}</td>
+            <td>{{player.weight}}</td>
+            <td>{{player.jersey}}</td>
+            <td class="options">
+              <a class="edit-button" routerLink="/player/edit-player/{{player.id}}">Edit <mat-icon>edit</mat-icon></a>
+              <a class="delete-button" routerLink="/player/delete-player/{{player.id}}">Delete <mat-icon>delete</mat-icon></a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>

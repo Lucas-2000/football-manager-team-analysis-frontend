@@ -46,3 +46,76 @@ select:focus {
   border: 2px solid var(--main-color);
   outline: none;
 }
+
+.styled-table {
+  margin-top: 1rem;
+  width: 100%;
+  border-collapse: collapse;
+  color: #333;
+}
+
+.styled-table th {
+  background-color: #f2f2f2;
+  text-align: left;
+  padding: 1rem;
+  font: 700 1.125rem "Poppins", sans-serif;
+}
+
+.styled-table td {
+  border-bottom: 1px solid #ddd;
+  padding: 1rem;
+  font: 400 1rem "Roboto", sans-serif;
+}
+
+.styled-table tr:nth-child(even) td {
+  background-color: #f2f2f2;
+}
+
+.styled-table tr:hover td {
+  background-color: #ddd;
+}
+
+.options {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 1rem;
+}
+
+.edit-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-align: center;
+  box-sizing: border-box;
+  width: max-content;
+  padding: 0.5rem;
+  background-color: var(--edit);
+  color: var(--black);
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  font: 700 1rem "Poppins", sans-serif;
+  text-transform: uppercase;
+  transition: 0.3s;
+}
+
+.delete-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-align: center;
+  box-sizing: border-box;
+  width: max-content;
+  padding: 0.5rem;
+  background-color: var(--cancel);
+  color: #fff;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  font: 700 1rem "Poppins", sans-serif;
+  text-transform: uppercase;
+  transition: 0.3s;
+}
