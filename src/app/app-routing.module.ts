@@ -14,6 +14,7 @@ import { PlayerComponent } from './pages/player/player/player.component';
 import { CreatePlayerComponent } from './pages/player/create-player/create-player.component';
 import { EditPlayerComponent } from './pages/player/edit-player/edit-player.component';
 import { DeletePlayerComponent } from './pages/player/delete-player/delete-player.component';
+import { ExportComponent } from './pages/export/export.component';
 
 const routes: Routes = [
   { path: '', component: LandingPageComponent },
@@ -30,6 +31,7 @@ const routes: Routes = [
   { path: 'player/create-player', component: CreatePlayerComponent },
   { path: 'player/edit-player/:id', component: EditPlayerComponent },
   { path: 'player/delete-player/:id', component: DeletePlayerComponent },
+  { path: 'export', component: ExportComponent },
   { path: '**', redirectTo: '/404' },
 ];
 
