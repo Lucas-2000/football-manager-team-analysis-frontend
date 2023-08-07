@@ -15,6 +15,7 @@ import { CreatePlayerComponent } from './pages/player/create-player/create-playe
 import { EditPlayerComponent } from './pages/player/edit-player/edit-player.component';
 import { DeletePlayerComponent } from './pages/player/delete-player/delete-player.component';
 import { ExportComponent } from './pages/export/export.component';
+import { AccountComponent } from './pages/account/account.component';
 
 const routes: Routes = [
   { path: '', component: LandingPageComponent },
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'reset-password/:token', component: ResetPasswordComponent },
+  { path: 'account', component: AccountComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'team', component: TeamComponent },
   { path: 'team/create-team', component: CreateTeamComponent },
