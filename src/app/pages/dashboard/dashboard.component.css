@@ -69,3 +69,48 @@ select:focus {
   border: 2px solid var(--main-color);
   outline: none;
 }
+
+.team-insights {
+  background-color: #f5f5f5;
+  padding: 1.125rem;
+  border-radius: 0.5rem;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 1rem;
+}
+
+.team-insights ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.team-insights li {
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.team-insights li:last-child {
+  border-bottom: none;
+}
+
+.team-insights p {
+  margin: 0;
+  font: 700 1rem "Roboto", sans-serif;
+  color: #333;
+  display: inline;
+  margin-right: 1rem;
+}
+
+.team-insights span {
+  font: 400 1rem "Roboto", sans-serif;
+  color: #666;
+}
+
+.team-insights span.bold {
+  font: 700 1rem "Roboto", sans-serif;
+  color: #333;
+}
+
+.team-insights span.best-attribute {
+  color: var(--main-color);
+}
