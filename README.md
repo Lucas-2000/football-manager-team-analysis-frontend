@@ -4,11 +4,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## The objectives
 
-- [] Login, register and forgot password;
-- [] Insert teams and players;
-- [] Dashboard to get insights about your team;
-- [] Make comparision between your team and with a team of another user;
-- [] Export in pdf or in excel format.
+- [x] Login, register and forgot password;
+- [x] Insert teams and players;
+- [x] Dashboard to get insights about your team;
+- [x] Export in pdf or in excel format.
 
 ## Development server
 
